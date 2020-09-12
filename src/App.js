@@ -8,7 +8,8 @@ import Login from './Login';
 import { useStateValue } from './StateProvider';
 import { auth } from './firebase';
 import Payment from './Payment/Payment';
-import { loadStripe } from '@stripe/stripe-js';
+
+import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js';
 
 const promise = loadStripe(
