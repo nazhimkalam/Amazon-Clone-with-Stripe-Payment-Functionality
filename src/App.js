@@ -8,6 +8,12 @@ import Login from './Login';
 import { useStateValue } from './StateProvider';
 import { auth } from './firebase';
 import Payment from './Payment/Payment';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+
+const promise = loadStripe(
+	'pk_test_51HQUFsJZkdK4ZudiLBulkny2bc1YyI7c2WZDOAI6HYT8aQB8gMx8iYcKjAnXMIXyJE8Xw9GTJ7PH69glYIOwdXQ500T253cpZS'
+);
 
 function App() {
 	const [{ user }, dispatch] = useStateValue();
@@ -55,7 +61,9 @@ function App() {
 					{/* routing to the payment page */}
 					<Route path="/payment">
 						<Header />
-						<Payment />
+						<Elements stripe={promise}>
+							<Payment />
+						</Elements>
 					</Route>
 					{/* This is the default page */}
 					<Route path="/">
