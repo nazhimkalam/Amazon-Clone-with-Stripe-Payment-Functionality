@@ -42,7 +42,7 @@ function Header() {
 				</Link>
 
 				{/* --link 02-- */}
-				<Link className="header__link" to="/">
+				<Link className="header__link" to="/orders">
 					<div className="header__option">
 						<span className="header__optionLineOne">Returns</span>
 						<span className="header__optionLineTwo">& Orders</span>
