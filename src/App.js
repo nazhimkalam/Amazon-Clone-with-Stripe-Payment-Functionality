@@ -51,6 +51,10 @@ function App() {
 					<Route path="/login">
 						<Login />
 					</Route>
+					{/* routing to the payment page */}
+					<Route path="/payment">
+						<Payment />
+					</Route>
 					{/* This is the default page */}
 					<Route path="/">
 						<Header />
