@@ -1,0 +1,109 @@
+.header {
+	background-color: rgb(15, 14, 14);
+	display: flex;
+	align-items: center;
+	position: sticky; /* sticky provides some animation where as fixed doesn't provide any animation at all */
+	top: 0;
+	z-index: 100; /* says that I need this layer to be at the very top most layer on the webpage */
+
+	/* adding animation for the heading */
+	animation: header-load 300ms ease-in 200ms;
+	animation-fill-mode: forwards;
+	transform: translateY(-20px);
+	opacity: 0;
+}
+
+@keyframes header-load {
+	0% {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.animation{
+	/* adding animation for the heading */
+	animation: headerItems-load 300ms ease-in 500ms;
+	animation-fill-mode: forwards;
+	transform: translateY(-20px);
+	opacity: 0;
+}
+
+@keyframes headerItems-load {
+	0% {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.header__logo {
+	height: 32px;
+	object-fit: contain; /* keep the aspect ratio of the logo to be same on any screen size */
+	margin: 20px 20px 10px 20px;
+	width: 100px;
+}
+
+.header__searchIcon {
+	background-color: #ffc400dc;
+	border: 1px sandybrown solid;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	outline: none;
+	padding: 4px;
+	height: 24px !important;
+}
+
+.header__search {
+	display: flex;
+	flex: 1;
+}
+
+.header__searchInput {
+	width: 100%;
+	height: 12px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-width: 1px;
+	outline: none;
+	padding: 10px;
+}
+
+.header__nav {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.header__link {
+	text-decoration: none;
+	color: white;
+}
+
+.header__option {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.header__optionLineOne {
+	font-size: 10px;
+}
+.header__optionLineTwo {
+	font-size: 13px;
+	font-weight: 800;
+}
+.header__optionBasket {
+	color: white;
+	display: flex;
+	align-items: center;
+}
+.header__basketCount {
+	margin-left: 10px;
+	margin-right: 10px;
+}

@@ -1,0 +1,35 @@
+.home__image {
+	width: 100%;
+	mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); /* adding the gradient */
+	max-height: 700px;
+	z-index: -1;
+	margin-bottom: -180px;
+
+	/* adding animation for the banner */
+	animation: article-load 300ms ease-in 800ms;
+	animation-fill-mode: forwards;
+	transform: translateY(-20px);
+	opacity: 0;
+}
+
+@keyframes article-load {
+	0% {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+}
+
+.home {
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.home__row{
+    display: flex;
+    z-index: 1;
+    margin: 0px 15px;
+}
