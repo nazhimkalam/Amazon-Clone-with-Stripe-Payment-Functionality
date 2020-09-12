@@ -18,6 +18,11 @@ function reducer(state, action) {
 		case 'ADD_TO_BASKET':
 			// Logic for adding items into the basket
 			return { ...state, basket: [...state.basket, action.item] }; // adding the previous items with the new one
+		case 'EMPTY_BASKET':
+			return {
+				...state,
+				basket: [...state.basket, action.item],
+			};
 		case 'REMOVE_FROM_BASKET':
 			// Logic for removing item from basket
 			let newBasket = [...state.basket]; // copying the vales of the current basket into a new array

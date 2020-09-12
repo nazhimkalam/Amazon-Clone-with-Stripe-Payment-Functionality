@@ -51,10 +51,15 @@ function Payment() {
 				},
 			})
 			.then(({ paymentIntent }) => {
-				// paymentIntent  = payment confirmation which is returned as a response
+                // paymentIntent  = payment confirmation which is returned as a response
+                
 				setSucceeded(true);
 				setError(null);
-				setProcessing(false);
+                setProcessing(false);
+                
+                dispatch({
+                    type: "EMPTY_BASKET"
+                })
 
 				history.replace('/orders'); // redirecting the user to the orders page
 			});
