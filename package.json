@@ -1,5 +1,5 @@
 {
-  "name": "Amazon-clone",
+  "name": "Amazon-clone-with-stripe",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
