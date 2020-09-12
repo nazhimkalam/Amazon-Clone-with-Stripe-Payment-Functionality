@@ -3,7 +3,7 @@ export const initialState = {
 	user: null,
 };
 
-export const getBasketTotal = (basket) => basket?.reduce((amount, item) => item.price + amount, 0); // 0 means the starting amount is set to 0
+export const getBasketTotal = (basket) => basket?.reduce((amount, item) => item?.price + amount, 0); // 0 means the starting amount is set to 0
 
 function reducer(state, action) {
 	console.log(state); // display the contents inside the initialState

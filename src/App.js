@@ -62,6 +62,7 @@ function App() {
 					</Route>
 					{/* routing to the orders page */}
 					<Route path="/orders">
+						<Header />
 						<Orders />
 					</Route>
 					{/* routing to the payment page */}

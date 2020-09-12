@@ -9,6 +9,7 @@ import { getBasketTotal } from '../reducer';
 import { useStateValue } from '../StateProvider';
 import './Payment.css';
 import axios from '../axios';
+import { db } from '../firebase';
 
 function Payment() {
 	const [{ basket, user }, dispatch] = useStateValue();
@@ -35,9 +36,9 @@ function Payment() {
 		};
 
 		getClientSecret();
-    }, [basket]);
-    
-    console.log('The secret is >>>', clientSecret)
+	}, [basket]);
+
+	console.log('The secret is >>>', clientSecret);
 
 	const handleSubmit = async (event) => {
 		// do all the fancy stripe stuff . . .
@@ -51,15 +52,21 @@ function Payment() {
 				},
 			})
 			.then(({ paymentIntent }) => {
-                // paymentIntent  = payment confirmation which is returned as a response
-                
+				// paymentIntent  = payment confirmation which is returned as a response
+
+				db.collection('users').doc(user?.uid).collection('orders').doc(paymentIntent.id).set({
+					basket: basket,
+					amount: paymentIntent.amount,
+					created: paymentIntent.created,
+				});
+
 				setSucceeded(true);
 				setError(null);
-                setProcessing(false);
-                
-                dispatch({
-                    type: "EMPTY_BASKET"
-                })
+				setProcessing(false);
+
+				dispatch({
+					type: 'EMPTY_BASKET',
+				});
 
 				history.replace('/orders'); // redirecting the user to the orders page
 			});
@@ -97,11 +104,11 @@ function Payment() {
 					<div className="payment__items">
 						{basket.map((item) => (
 							<CheckOutProduct
-								id={item.id}
-								title={item.title}
-								image={item.image}
-								price={item.price}
-								rating={item.rating}
+								id={item?.id}
+								title={item?.title}
+								image={item?.image}
+								price={item?.price}
+								rating={item?.rating}
 							/>
 						))}
 					</div>
